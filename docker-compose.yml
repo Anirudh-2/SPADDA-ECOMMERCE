@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: spadda-postgres
+    environment:
+      POSTGRES_DB: spadda
+      POSTGRES_USER: spadda
+      POSTGRES_PASSWORD: spadda
+    ports:
+      - "5433:5432"
+    volumes:
+      - spadda_pgdata:/var/lib/postgresql/data
+
+volumes:
+  spadda_pgdata:

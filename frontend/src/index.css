@@ -1,0 +1,28 @@
+:root {
+  --orange: #f47a1f;
+  --yellow: #ffd54a;
+  --black: #111111;
+  --red: #c62828;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #1a1208;
+  color: #fff;
+}
+
+button {
+  cursor: pointer;
+  font: inherit;
+}
