@@ -34,6 +34,7 @@ export default function App() {
     }
     const video = videoRef.current;
     video.muted = false;
+    setMuted(false);
     const attempt = video.play();
     if (attempt) {
       attempt.catch(() => {
@@ -93,6 +94,7 @@ export default function App() {
           autoPlay
           muted={muted}
           playsInline
+          preload="auto"
           onEnded={goToSlides}
         />
         <div className="splash-actions">
@@ -160,22 +162,34 @@ export default function App() {
         ))}
       </section>
       <section className="contact">
-        <a href={`tel:${brand.phone}`}>Call {brand.phone}</a>
-        <a href={`mailto:${brand.email}`}>{brand.email}</a>
-        <a
-          href={`https://instagram.com/${brand.instagram.replace("@", "")}`}
-          target="_blank"
-          rel="noreferrer"
-        >
-          Instagram {brand.instagram}
-        </a>
-        <a href={brand.youtubeUrl} target="_blank" rel="noreferrer">
-          YouTube {brand.youtube}
-        </a>
-        <div className="address">{brand.address}</div>
-        <a href={brand.youtubeUrl} target="_blank" rel="noreferrer" className="qr-link">
-          <img className="qr" src={brand.qrImageUrl} alt="SP ADDA QR code" />
-        </a>
+        <div className="contact-grid">
+          <div className="contact-details">
+            <a href={`tel:${brand.phone}`}>
+              <span className="label">Call</span>
+              <span className="value">{brand.phone}</span>
+            </a>
+            <a href={`mailto:${brand.email}`}>
+              <span className="label">Email</span>
+              <span className="value">{brand.email}</span>
+            </a>
+            <a
+              href={`https://instagram.com/${brand.instagram.replace("@", "")}`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span className="label">Instagram</span>
+              <span className="value">{brand.instagram}</span>
+            </a>
+            <a href={brand.youtubeUrl} target="_blank" rel="noreferrer">
+              <span className="label">YouTube</span>
+              <span className="value">{brand.youtube}</span>
+            </a>
+            <div className="address">{brand.address}</div>
+          </div>
+          <a href={brand.youtubeUrl} target="_blank" rel="noreferrer" className="qr-link">
+            <img className="qr" src={brand.qrImageUrl} alt="SP ADDA QR code" />
+          </a>
+        </div>
       </section>
     </main>
   );
